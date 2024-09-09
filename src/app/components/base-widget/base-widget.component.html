@@ -1,0 +1,16 @@
+<div
+    [style.--leftx]="Left_X + 'px'"
+    [style.--topy]="Top_Y + 'px'"
+    [style.--width]="Width + 'px'"
+    [style.--height]="Height + 'px'"
+    [style.--padding]="Padding + 'px'"
+    [style.--zindex]="Z_Index"
+    [style.--bc]="Background_Color"
+    [style.--cr]="Corner_Radius + 'px'"
+
+    (pointerdown)="down($event)"
+>
+    <div>
+        {{title}}
+    </div>
+</div>

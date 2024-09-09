@@ -1,0 +1,35 @@
+:host
+{
+    --leftx: 0;
+    --topy: 0;
+    --width: 0;
+    --height: 0;
+    --padding: 0;
+    --zindex: 0;
+    --bc: gray;
+    --cr: 0;
+
+    &>*
+    {
+        position: absolute;
+
+        left: var(--leftx);
+        top: var(--topy);
+
+        width: var(--width);
+        height: var(--height);
+
+        z-index: var(--zindex);
+
+        padding: var(--padding);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: var(--bc);
+
+        border-radius: var(--cr);
+        // border: 1px solid black;
+    }
+}

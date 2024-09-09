@@ -1,0 +1,764 @@
+{
+    "Allow_Local_Network_Writes": true,
+    "Allow_Remote_Network_Writes": true,
+    "Stand_Alone_Mode": false,
+    "Show_Tooltips": false,
+
+    "Description": "Shell config for UI deployed on rig, regardless of whether it's on the left or right HMI, and also for development",
+
+    "SmartDrill_Sequence_Name": "smartdrill",
+    "SmartSlide_Sequence_Name": "smartslide",
+
+    "Default_Global_PLC_Tag_Read_Rate_ms": 500,
+
+    "Clients":
+    {
+        "MQTT":
+        {
+            "Enabled": true,
+            "Heartbeat_Rate_ms": 2000,
+            "Timeout_ms": 5000
+        },
+
+        "WS":
+        {
+            "Enabled": true,
+            "Heartbeat_Rate_ms": 2000,
+            "Timeout_ms": 5000
+        },
+
+        "HTTP":
+        {
+            "Enabled": true,
+            "Heartbeat_Rate_ms": 2000,
+            "Timeout_ms": 5000
+        }
+    },
+
+    "Remote_Services":
+    {
+        "Data_Server_MQTT_Broker":
+        {
+            "Mode": "MQTT via WS",
+            "Timeout_ms": 5000
+        },
+
+        "ROS_Automation":
+        {
+            "Mode": "WS",
+            "Timeout_ms": 5000
+        },
+
+        "Recipe_Manager":
+        {
+            "Mode": "WS + HTTP",
+            "Timeout_ms": 5000
+        }
+    },
+
+    "Network":
+    {
+        "Valid_Local_Network_Host_Names":
+        [
+            "192.168.1.181",
+            "192.168.1.180",
+            "192.168.1.179",
+            "192.168.1.178",
+            "192.168.1.244"
+        ],
+
+        "HMI":
+        {
+            "Data_Server_MQTT_Broker":
+            {
+                "WS":
+                {
+                    "URL": "ws://127.0.0.1:9001",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "ROS_Automation":
+            {
+                "WS":
+                {
+					"URL": "ws://192.168.1.30:9090",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "Recipe_Manager":
+            {
+                "WS":
+                {
+                    "URL": "ws://192.168.1.244/RecipeManagerApp/ws/",
+                    "Reuse_Base": "none"
+                },
+
+                "HTTP":
+                {
+					"Source_URL": "http://192.168.1.244/RecipeManagerApp/source",
+					"Source_Reuse_Base": "none",
+
+					"Recipes_URL": "http://192.168.1.244/RecipeManagerApp/recipes",
+					"Recipes_Reuse_Base": "none",
+
+					"Root_URL": "http://192.168.1.244/RecipeManagerApp",
+					"Root_Reuse_Base": "none"
+                }
+            },
+
+            "UI_Widgets":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/smartros-widgets-app/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Rig_Config":
+            {
+                "HTTP":
+                {
+					"URL": "http://localhost:4888",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "App_Config":
+            {
+                "HTTP":
+                {
+					"URL": "http://192.168.1.244/ui_ux_ip_finder/whoami",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+
+        "Local":
+        {
+            "Data_Server_MQTT_Broker":
+            {
+                "WS":
+                {
+                    "URL": "ws://192.168.1.244/ui_ux_mqtt_ws_proxy",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "ROS_Automation":
+            {
+                "WS":
+                {
+					"URL": "ws://192.168.1.30:9090",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "Recipe_Manager":
+            {
+                "WS":
+                {
+                    "URL": "ws://192.168.1.244/RecipeManagerApp/ws/",
+                    "Reuse_Base": "none"
+                },
+
+                "HTTP":
+                {
+					"Source_URL": "http://192.168.1.244/RecipeManagerApp/source",
+					"Source_Reuse_Base": "none",
+
+					"Recipes_URL": "http://192.168.1.244/RecipeManagerApp/recipes",
+					"Recipes_Reuse_Base": "none",
+
+					"Root_URL": "http://192.168.1.244/RecipeManagerApp",
+					"Root_Reuse_Base": "none"
+                }
+            },
+
+            "UI_Widgets":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/smartros-widgets-app/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Rig_Config":
+            {
+                "HTTP":
+                {
+                    "URL": ":4888",
+                    "Reuse_Base": "hostname"
+                }
+            },
+
+            "App_Config":
+            {
+                "HTTP":
+                {
+					"URL": "http://192.168.1.244/ui_ux_ip_finder/whoami",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+
+        "Remote":
+        {
+            "Data_Server_MQTT_Broker":
+            {
+                "WS":
+                {
+                    "URL": "ws://10.51.52.73/ui_data_server_mqtt_ws/",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "ROS_Automation":
+            {
+                "WS":
+                {
+                    "URL": "ws://10.51.52.73/ui_sequencer",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "Recipe_Manager":
+            {
+                "WS":
+                {
+                    "URL": "ws://10.51.52.73/RM_WS",
+                    "Reuse_Base": "none"
+                },
+
+                "HTTP":
+                {
+                    "Source_URL": "http://10.51.52.73/RM_Source",
+                    "Source_Reuse_Base": "none",
+                    "Recipes_URL": "http://10.51.52.73/RM_Recipes",
+                    "Recipes_Reuse_Base": "none",
+                    "Root_URL": "http://10.51.52.73/RM_Root",
+                    "Root_Reuse_Base": "none"
+                }
+            },
+
+            "UI_Widgets":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/smartros-widgets-app/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Rig_Config":
+            {
+                "HTTP":
+                {
+					"URL": "",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "App_Config":
+            {
+                "HTTP":
+                {
+					"URL": "http://localhost:4888",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+
+        "Develop":
+        {
+            "Data_Server_MQTT_Broker":
+            {
+                "WS":
+                {
+                    "URL": "ws://10.51.52.73/ui_data_server_mqtt_ws/",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "ROS_Automation":
+            {
+                "WS":
+                {
+                    "URL": "ws://10.51.52.73/ui_sequencer",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "Recipe_Manager":
+            {
+                "WS":
+                {
+                    "URL": "ws://10.51.52.73/RM_WS",
+                    "Reuse_Base": "none"
+                },
+
+                "HTTP":
+                {
+                    "Source_URL": "http://10.51.52.73/RM_Source",
+                    "Source_Reuse_Base": "none",
+                    "Recipes_URL": "http://10.51.52.73/RM_Recipes",
+                    "Recipes_Reuse_Base": "none",
+                    "Root_URL": "http://10.51.52.73/RM_Root",
+                    "Root_Reuse_Base": "none"
+                }
+            },
+
+            "UI_Widgets":
+            {
+                "HTTP":
+                {
+                    "URL": "http://localhost:4301/remoteEntry.js",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "Rig_Config":
+            {
+                "HTTP":
+                {
+					"URL": "http://localhost:4888",
+                    "Reuse_Base": "none"
+                }
+            },
+
+            "App_Config":
+            {
+                "HTTP":
+                {
+					"URL": "http://10.51.52.73/ip_finder",
+                    "Reuse_Base": "none"
+                }
+            }
+        }
+    },
+
+    "Data_Server_MQTT_Broker_Topics":
+    {
+        "Global":
+        {
+            "Data_Server":
+            {
+                "Connection_Result": "data_server_for_ui/connection_result",
+                "Diagnostic": "data_server_for_ui/diagnostic"
+            },
+
+            "UI":
+            {
+                "Connect": "data_server_for_ui/connect",
+                "Disconnect": "data_server_for_ui/disconnect"
+            },
+
+            "Alarm_Server":
+            {
+                "All_Activated_Alarms": "alarm_service/active_alarms",
+                "Acknowledge_Alarms": "alarm_service/acknowledge"
+            }
+        },
+
+        "Unique":
+        {
+            "Data_Server":
+            {
+                "Read_Result": "/read_result",
+                "Write_Result": "/write_result",
+                "Validation_Result": "/validation_result",
+                "Diagnostic": "/data_server_diagnostic",
+                "Connection_Status": "/connection_status",
+                "Request_Error": "/request_error"
+            },
+
+            "UI":
+            {
+                "Read": "/read",
+                "Write": "/write",
+                "Validate": "/validate",
+                "Diagnostic": "/diagnostic",
+                "Cancel_Read": "/cancel_read"
+            }
+        }
+    },
+
+    "Third_Party_Screens_Config":
+    [
+        {
+            "Name": "Drill",
+            "Group": "",
+            "Desired_Navigation_URL": "drill",
+            "Root_Module_Name": "./Component",
+            "Root_Component_Name": "DefaultComponent",
+            "Routes_Module_Name": "./routes",
+            "Routes_Object_Name": "routes",
+            "Remote":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/drill/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Local": {
+                "HTTP":
+                {
+					"URL": "smartros/drill/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }},
+
+            "HMI":{
+                "HTTP":
+                {
+					"URL": "smartros/drill/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Develop":{
+                "HTTP":
+                {
+                    "URL": "http://localhost:4401/remoteEntry.js",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+
+        {
+            "Name": "Rockit",
+            "Group": "",
+            "Desired_Navigation_URL": "rockit",
+            "Root_Module_Name": "./Component",
+            "Root_Component_Name": "RockitScreenComponent",
+            "Routes_Module_Name": "./routes",
+            "Routes_Object_Name": "routes",
+            "Remote":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/rockit/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Local": {
+                "HTTP":
+                {
+					"URL": "smartros/rockit/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }},
+
+            "HMI": {
+                "HTTP":
+                {
+					"URL": "smartros/rockit/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Develop": {
+                "HTTP":
+                {
+                    "URL": "http://localhost:4402/remoteEntry.js",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+
+        {
+            "Name": "Trip",
+            "Group": "",
+            "Desired_Navigation_URL": "trip",
+            "Root_Module_Name": "./Component",
+            "Root_Component_Name": "ScreenTripComponent",
+            "Routes_Module_Name": "./routes",
+            "Routes_Object_Name": "routes",
+            "Remote":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/trip/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Local": {
+                "HTTP":
+                {
+					"URL": "smartros/trip/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }},
+
+            "HMI": {
+                "HTTP":
+                {
+					"URL": "smartros/trip/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Develop": {
+                "HTTP":
+                {
+                    "URL": "http://localhost:4404/remoteEntry.js",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+
+        {
+            "Name": "Case",
+            "Group": "",
+            "Desired_Navigation_URL": "case/case",
+            "Root_Module_Name": "./Component",
+            "Root_Component_Name": "ScreenCaseComponent",
+            "Routes_Module_Name": "./routes",
+            "Routes_Object_Name": "routes",
+            "Remote":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/case/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Local": {
+                "HTTP":
+                {
+					"URL": "smartros/case/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }},
+
+            "HMI": {
+                "HTTP":
+                {
+					"URL": "smartros/case/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Develop": {
+                "HTTP":
+                {
+                    "URL": "http://localhost:4405/remoteEntry.js",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+
+        {
+            "Name": "CDS",
+            "Group": "",
+            "Desired_Navigation_URL": "case/cds",
+            "Root_Module_Name": "./Component",
+            "Root_Component_Name": "ScreenIntegratedCasingComponent",
+            "Routes_Module_Name": "./routes",
+            "Routes_Object_Name": "routes",
+            "Remote":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/integrated-casing/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Local": {
+                "HTTP":
+                {
+					"URL": "smartros/integrated-casing/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }},
+
+            "HMI":{
+                "HTTP":
+                {
+					"URL": "smartros/integrated-casing/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Develop":{
+                "HTTP":
+                {
+                    "URL": "http://localhost:4406/remoteEntry.js",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+
+
+        {
+            "Name": "Recipes",
+            "Group": "",
+            "Desired_Navigation_URL": "recipes",
+            "Root_Module_Name": "./Component",
+            "Root_Component_Name": "RecipesHomeComponent",
+            "Routes_Module_Name": "./routes",
+            "Routes_Object_Name": "routes",
+            "Remote":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/recipes/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Local": {
+                "HTTP":
+                {
+					"URL": "smartros/recipes/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }},
+
+            "HMI": {
+                "HTTP":
+                {
+					"URL": "smartros/recipes/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Develop": {
+                "HTTP":
+                {
+                    "URL": "http://localhost:4407/remoteEntry.js",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+
+        {
+            "Name": "MPD-Ready",
+            "Group": "",
+            "Desired_Navigation_URL": "mpd_ready",
+            "Root_Module_Name": "./Component",
+            "Root_Component_Name": "MpdReadyComponent",
+            "Routes_Module_Name": "./routes",
+            "Routes_Object_Name": "routes",
+            "Remote":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/mpd_ready/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Local": {
+                "HTTP":
+                {
+					"URL": "smartros/mpd_ready/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }},
+
+            "HMI":{
+                "HTTP":
+                {
+					"URL": "smartros/mpd_ready/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Develop":{
+                "HTTP":
+                {
+                    "URL": "http://localhost:4408/remoteEntry.js",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+        {
+            "Name": "SmartPlan",
+            "Group": "",
+            "Desired_Navigation_URL": "smartplan",
+            "Root_Module_Name": "./Component",
+            "Root_Component_Name": "SmartplanHomeComponent",
+            "Routes_Module_Name": "./routes",
+            "Routes_Object_Name": "routes",
+            "Remote":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/smart_plan/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Local": {
+                "HTTP":
+                {
+					"URL": "smartros/smart_plan/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "HMI":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/smart_plan/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Develop":
+            {
+                "HTTP":
+                {
+                    "URL": "http://localhost:5001/remoteEntry.js",
+                    "Reuse_Base": "none"
+                }
+            }
+        },
+
+        {
+            "Name": "smartPOWER",
+            "Group": "",
+            "Desired_Navigation_URL": "smart-power",
+            "Root_Module_Name": "./Component",
+            "Root_Component_Name": "AppComponent",
+            "Routes_Module_Name": "./routes",
+            "Routes_Object_Name": "routes",
+            "Remote":
+            {
+                "HTTP":
+                {
+					"URL": "smartros/smart-power/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Local": {
+                "HTTP":
+                {
+					"URL": "smartros/smart-power/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "HMI": {
+                "HTTP":
+                {
+					"URL": "smartros/smart-power/remoteEntry.js",
+                    "Reuse_Base": "hostname and port"
+                }
+            },
+
+            "Develop": {
+                "HTTP":
+                {
+                    "URL": "http://localhost:4410/remoteEntry.js",
+                    "Reuse_Base": "none"
+                }
+            }
+        }
+    ]
+}

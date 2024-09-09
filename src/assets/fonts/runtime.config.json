@@ -1,0 +1,13 @@
+{
+    "datacenter_backend_ws_url": "http://localhost:9001",
+    "alarms_backend_ws_url": "ws://10.51.52.188/ui_alarms_service",
+    "rosWebSocketUrl": "ws://192.168.1.30:9091", 
+    "rootApiUrl": "http://10.51.52.189:1804",
+    "webSocketRecipeChannelUrl": "ws://10.51.52.188/RecipeManagerApp/ws/",
+    "sourceUrl": "http://10.51.52.188/RecipeManagerApp/source",
+    "recipeUrl": "http://10.51.52.188/RecipeManagerApp/recipes",
+    "sysUrl": "http://10.51.52.188/RecipeManagerApp",
+    "custom_key": "Settings for use via proxy",
+    "smartDrillSequenceName": "smartdrill",
+    "smartSlideSequenceName": "smartslide"
+}
